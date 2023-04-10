@@ -22,21 +22,24 @@ const userSchema = new mongoose.Schema({
 
 const User = new mongoose.model(" User ", userSchema)
 
+// Thirdperson userschems
 const thirdSchema = new mongoose.Schema({
     name: String,
     number: String,
     email: String,
-    message: String
+    message: String,
+    formId: String
 })
 
 const ThirdUser = mongoose.model("ThirdUser", thirdSchema)
 app.post('/user', (req, res) => {
-    const {name, number, email, message} = req.body
+    const {name, number, email, message, formId} = req.body
     const tuser = new ThirdUser({
         name,
         number,
         email,
-        message
+        message,
+        formId
     })
     tuser.save(err => {
         if(err) {
@@ -87,4 +90,15 @@ app.post('/signup', (req, res) => {
 
 app.listen(8000, () => {
     console.log("Be started at port 8000")
+})
+
+// fetching thirdperson data for specific user
+app.get('/getalluser', async(req, res) => {
+    try{
+        const alldata = await ThirdUser.find({});
+        res.send({status:"ok", data: alldata})
+    }
+    catch(error){
+        console.log(error)
+    }
 })
