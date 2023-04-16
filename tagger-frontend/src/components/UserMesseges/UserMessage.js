@@ -2,6 +2,7 @@ import {React, useState,useEffect} from 'react'
 import Logo from '../../assests/images/logo.png'
 import "../routes/Home.css"
 import {CiLogout, CiUser} from 'react-icons/ci'
+import Footer from '../Footer/Footer'
 
 const UserMessage = ({updateUser}) => {
     const [info, setInfo] = useState([]);
@@ -52,6 +53,7 @@ const UserMessage = ({updateUser}) => {
             </table>            
             </div>
         </div>
+        <Footer/>
         </> 
     )
 }

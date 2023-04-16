@@ -5,6 +5,7 @@ import { BASE_URL } from '../../constant';
 import Logo from '../../assests/images/logo.png'
 import {CiLogout, CiUser} from 'react-icons/ci'
 import Footer from '../Footer/Footer';
+import About from '../aboutTagger/About';
 
 const Home = ({updateUser}) => {
     const [qrcode, Setqrcode] = useState('');
@@ -55,6 +56,7 @@ const Home = ({updateUser}) => {
                 </div>
             </div>}
         </div>
+        <About/>
         <Footer/>
         </>
     )
